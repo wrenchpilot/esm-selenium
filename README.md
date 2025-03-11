@@ -6,7 +6,6 @@ ESM has no API. Use [Selenium](https://www.selenium.dev/) library to automate ta
 
 ## Setup
 
-* Using VS Code: setup a `.venv` [Python Virtual Environment](https://code.visualstudio.com/docs/python/environments#_using-the-create-environment-command) and  activate the environmentselect this repo's `requirements.txt`
 * Environment setup:
 
    ```bash
