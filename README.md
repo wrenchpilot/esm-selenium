@@ -22,7 +22,7 @@ ESM has no API. Use [Selenium](https://www.selenium.dev/) library to automate ta
      ```
 
 * Copy `.credentials.example.json` to `.credentials.json` and edit to add your ESM credentials
-* Edit `config.json` and set 
+* Edit `config.json` and set
   * `esm_host` ( e.g. `http://your_school_esm.edu:PORT` )
   * `esm_webapps_path` ( e.g. `/opt/tomcat/webapps` )
   * `esm_machine_suffix` ( e.g. `.subdomain.your_school_esm.edu` )
@@ -73,16 +73,17 @@ ESM has no API. Use [Selenium](https://www.selenium.dev/) library to automate ta
    {
       "machine": [
          {
-               "name": "HOSTNAME_BMUI_AGENT",
+               "name": "",
+               "application": "",
                "private_ip": "",
                "public_ip": "",
                "public_hostname": "",
                "esm_env": "",
                "esm_b8_help_path": "/your/banner/path/B8help",
                "esm_b9_help_path": "/your/banner/path/B9help",
-               "esm_b9_war_path": "/your/banner/path/XE_staging"
-         },
-         ...
+               "esm_b9_war_path": "/your/banner/path/XE_staging",
+               "esm_admin_api_app_data_path": ""
+         }
       ]
    }
    ```

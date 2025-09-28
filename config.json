@@ -32,6 +32,7 @@
     "esm_server_machine_field": "adminEnvMachineFld",
     "esm_webapps_path_field": "adminEnvAddtomcatInstancescriptPathFld",
     "esm_server_ssl_field": "adminEnvisSslAppPortFld",
+    "esm_admin_api_app_data_path_field": "BAN_API_APP_DATA_PATH_TOMCAT",
     "esm_remove_server_prompt_button_xpath": "//*[@id='admin-env-add-server']//button[contains(text(), 'Remove App Server')]",
     "esm_remove_server_button_xpath": "//*[@id='admin-env-delete-server-prompt']//button[contains(text(), 'Remove App Server')]",
     "esm_remove_machine_prompt_button_xpath": "//*[@id='admin-env-server']//button[contains(text(), 'Remove Machine')]",

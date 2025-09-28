@@ -119,7 +119,7 @@ for machine in machines["machine"]:
     server_link = wait.until(EC.presence_of_element_located((By.XPATH, config['esm_appserver_xpath'])))
     server_link.click()
     # wait = WebDriverWait(driver, 30)
-    action_link = wait.until(EC.presence_of_element_located((By.XPATH, "//td[text()='" + machine['name'] + "']")))
+    action_link = wait.until(EC.presence_of_element_located((By.XPATH, "//td[contains(text(), '" + machine['name'] + "')]")))
     action_parent = action_link.find_element(By.XPATH, "..")
     action_parent.click()
     machine_select =  wait.until(EC.presence_of_element_located((By.TAG_NAME,'select')))
@@ -134,6 +134,10 @@ for machine in machines["machine"]:
     webapp_path = wait.until(EC.presence_of_element_located((By.ID, config['esm_webapps_path_field'])))
     webapp_path.clear()
     webapp_path.send_keys(config['esm_webapps_path'])
+    if machine['esm_admin_api_app_data_path']:
+        webapp_path = wait.until(EC.presence_of_element_located((By.ID, config['esm_admin_api_app_data_path_field'])))
+        webapp_path.clear()
+        webapp_path.send_keys(machine['esm_admin_api_app_data_path'])
     save_button = wait.until(EC.presence_of_element_located((By.XPATH, config['esm_server_save_button_xpath'])))
     save_button.click()
 

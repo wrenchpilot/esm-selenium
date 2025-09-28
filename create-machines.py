@@ -24,7 +24,7 @@ __author__ = "James Shawn Carnley"
 __copyright__ = "Copyright 2024"
 __credits__ = ["James Shawn Carnley"]
 __license__ = "GPL"
-__version__ = "3.0.0"
+__version__ = "1.0.0"
 __maintainer__ = "James Shawn Carnley"
 __email__ = "shawn.carnley@gatech.edu"
 __status__ = "Production"
@@ -136,7 +136,7 @@ for machine in machines["machine"]:
     add_button.click()
     server_name_field = wait.until(EC.presence_of_element_located((By.ID, config['esm_server_name_field'])))
     server_type_field = wait.until(EC.element_to_be_clickable((By.XPATH, config['esm_server_type_xpath'])))
-    server_name_field.send_keys(machine['name'])
+    server_name_field.send_keys(machine['name'] + '-' + machine['application'])
     server_type_field.click()
     add_server_button = wait.until(EC.presence_of_element_located((By.XPATH, config['esm_add_server_button_xpath'])))
     add_server_button.click()
@@ -146,7 +146,7 @@ for machine in machines["machine"]:
     server_link = wait.until(EC.presence_of_element_located((By.XPATH, config['esm_appserver_xpath'])))
     server_link.click()
     wait = WebDriverWait(driver, 10)
-    action_link = wait.until(EC.presence_of_element_located((By.XPATH, "//td[text()='" + machine['name'] + "']")))
+    action_link = wait.until(EC.presence_of_element_located((By.XPATH, "//td[text()='" + machine['name'] + '-' + machine['application'] + "']")))
     action_parent = action_link.find_element(By.XPATH, "..")
     action_parent.click()
     machine_select =  wait.until(EC.presence_of_element_located((By.TAG_NAME,'select')))
@@ -161,6 +161,10 @@ for machine in machines["machine"]:
     webapp_path = wait.until(EC.presence_of_element_located((By.ID, config['esm_webapps_path_field'])))
     webapp_path.clear()
     webapp_path.send_keys(config['esm_webapps_path'])
+    if machine['esm_admin_api_app_data_path']:
+        webapp_path = wait.until(EC.presence_of_element_located((By.ID, config['esm_admin_api_app_data_path_field'])))
+        webapp_path.clear()
+        webapp_path.send_keys(machine['esm_admin_api_app_data_path'])
     save_button = wait.until(EC.presence_of_element_located((By.XPATH, config['esm_server_save_button_xpath'])))
     save_button.click()
 
